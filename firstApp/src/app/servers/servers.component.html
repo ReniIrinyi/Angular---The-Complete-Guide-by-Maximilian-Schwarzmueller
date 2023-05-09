@@ -1,0 +1,13 @@
+<p>ServersComponent works!</p>
+<input type="text" class="form-control" [(ngModel)]="serverName" />
+<!-- <p>{{ serverName }}</p> -->
+<button [disabled]="!alowNewServer" (click)="onCreateServer()">
+  Add Server
+</button>
+<!-- <p [innerText]="alowNewServer"></p> -->
+<p *ngIf="serverCreated; else noServer">{{ serverCreation }}</p>
+<ng-template #noServer>
+  <p>No server was created!</p>
+</ng-template>
+<hr />
+<app-server *ngFor="let server of servers"></app-server>
